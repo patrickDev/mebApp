@@ -1,0 +1,7 @@
+{
+  "name": "mebam",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
