@@ -1,10 +1,14 @@
 import { Component, ViewChild } from '@angular/core';
-import { Nav, Platform } from 'ionic-angular';
+import { Nav, Platform, NavController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
+import { NjanguiPage } from '../pages/njangui/njangui';
+import { SagiPage } from '../pages/sagi/sagi';
+import { AssurancePage } from '../pages/assurance/assurance';
+import { FondRoulementPage } from '../pages/fond-roulement/fond-roulement';
+import { BanqueScolairePage } from '../pages/banque-scolaire/banque-scolaire';
 
 @Component({
   templateUrl: 'app.html'
@@ -16,15 +20,14 @@ export class MyApp {
 
   pages: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
-    this.initializeApp();
-
-    // used for an example of ngFor and navigation
-    this.pages = [
-      { title: 'Home', component: HomePage },
-      { title: 'List', component: ListPage }
-    ];
-
+  constructor(public platform: Platform, 
+    public statusBar: StatusBar, 
+    public splashScreen: SplashScreen
+    //public navCtrl: NavController
+    ) {
+    
+      this.initializeApp();
+  
   }
 
   initializeApp() {
@@ -40,5 +43,24 @@ export class MyApp {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
+  }
+  goHome(){
+    //this.navCtrl.popToRoot()
+  }
+  goToNjangui(){
+    this.nav.push(NjanguiPage)
+  }
+
+  goToAssurance(){
+    this.nav.push(AssurancePage)
+  }
+  goToSagi(){
+    this.nav.push(SagiPage)
+  }
+  goToFondRoulement(){
+    this.nav.push(FondRoulementPage)
+  }
+  goToBanqueScolaire(){
+    this.nav.push(BanqueScolairePage)
   }
 }
